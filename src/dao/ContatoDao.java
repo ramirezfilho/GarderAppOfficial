@@ -36,6 +36,7 @@ public class ContatoDao {
 //            stmt.setDate(4, new Date(
 //                    contato.getDataNascimento().getTimeInMillis()));
             // executa
+            
             stmt.execute();
             stmt.close();
         } catch (SQLException e) {
