@@ -14,10 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import dados.Contato;
 import dao.ContatoDao;
-
+import javax.servlet.RequestDispatcher;
 
 public class AdicionaContato extends HttpServlet {
-    
 
     @Override
     protected void service(HttpServletRequest request,
@@ -43,21 +42,17 @@ public class AdicionaContato extends HttpServlet {
 //            System.out.println("Erro na conversão da data.");
 //            return;
 //        }
-
         Contato contatoAdicionado = new Contato();
         contatoAdicionado.setNome(nome);
         contatoAdicionado.setEndereco(endereco);
         contatoAdicionado.setEmail(email);
         contatoAdicionado.setTelefone(telefone);
-        
+
         ContatoDao ops = new ContatoDao();
         ops.adiciona(contatoAdicionado);
-        out.println("<html>");
-        out.println("<body>");
-        out.println("Contato " + contatoAdicionado.getNome()
-                + " adicionado com sucesso");
-        out.println("</body>");
-        out.println("</html>");
+        RequestDispatcher rd = request
+                .getRequestDispatcher("/contato-adicionado.jsp");
+        rd.forward(request, response);
 
     }
 }

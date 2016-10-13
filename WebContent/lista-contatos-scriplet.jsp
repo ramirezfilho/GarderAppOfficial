@@ -53,9 +53,9 @@
                             %>
                         </table>
                     </div>
-                        
-                </div>
                         <a href="index.html"> <button class="bt btn-primary" type="button" value="Voltar">Voltar</button></a>
+                </div>
+                        
                 <div class="col-md-4">
                 </div>
             </div>
