@@ -23,6 +23,14 @@
         <servlet-name>RemoveContato</servlet-name>
         <servlet-class>servlet.RemoveContato</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PrimeiraLogica</servlet-name>
+        <servlet-class>mvc.logica.PrimeiraLogica</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>mvc.servlet.ControllerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>primeiraServlet</servlet-name>
         <url-pattern>/OiMundo</url-pattern>
@@ -42,5 +50,9 @@
     <servlet-mapping>
         <servlet-name>RemoveContato</servlet-name>
         <url-pattern>/RemoveContato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/mvc</url-pattern>
     </servlet-mapping>
 </web-app>

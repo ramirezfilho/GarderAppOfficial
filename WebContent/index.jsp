@@ -21,7 +21,7 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="mvc?logica=ListaContatosLogic">Lista Contatos</a></li>
+                <li><a href="listacontatos.jsp">Lista Contatos</a></li>
                 <li><a href="digitaidade.jsp">Digita</a></li>
                 <li><a href="mostraidade.jsp">Mostra</a></li>
                 <li role="separator" class="divider"></li>
@@ -49,7 +49,7 @@
 
                                 <div class="panel-body">
 
-                                    <form action="AdicionaContato" method="POST">
+                                    <form action="AdicionaContatoLogic" method="POST">
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Nome</label>
                                             <input type="text" class="form-control" id="formGroupExampleInput" 
@@ -65,9 +65,9 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput">Endere√ßo</label>
+                                            <label for="formGroupExampleInput">EndereÁo</label>
                                             <input type="text" class="form-control" id="formGroupExampleInput" 
-                                                   placeholder="Endere√ßo" name="endereco" />
+                                                   placeholder="EndereÁo" name="endereco" />
                                             <br />
                                         </div>
 
@@ -110,11 +110,11 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <a class="panel-title collapsed" data-toggle="collapse" 
-                                   data-parent="#panel-839759" href="#panel-element-121226">Lan√ßamento de tarefas</a>
+                                   data-parent="#panel-839759" href="#panel-element-121226">LanÁamento de tarefas</a>
                             </div>
                             <div id="panel-element-121226" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Em constru√ß√£o
+                                    Em construÁ„o
                                 </div>
                             </div>
                         </div>
@@ -161,11 +161,11 @@
                         <td><input type="number" name="sobrenome" size="0.6em"> <br /></td>
                     </tr>
                     <tr>
-                        <td>Prev. Conclus√£o:</td>
+                        <td>Prev. Conclus„o:</td>
                         <td><input type="date" name="sobrenome" size="0.6em"> <br /></td>
                     </tr>
                     <tr>
-                        <td>Data Conclus√£o:</td>
+                        <td>Data Conclus„o:</td>
                         <td><input type="date" name="sobrenome" size="0.6em"> <br /></td>
                     </tr>
                     <tr>
