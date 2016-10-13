@@ -1,1 +1,5 @@
 body { padding-bottom: 70px; }
+
+a.btn-exclude {
+    color: #c9302c;
+}
