@@ -71,11 +71,11 @@ public class ContatoDao {
         }
     }
     
-    public void remove(Long cod) {
+    public void remove(int cod) {
      try {
          PreparedStatement stmt = connection.prepareStatement("delete " +
                  "from contatos where id=?");
-         stmt.setLong(1, cod);
+         stmt.setInt(1, cod);
          stmt.execute();
          stmt.close();
      } catch (SQLException e) {
