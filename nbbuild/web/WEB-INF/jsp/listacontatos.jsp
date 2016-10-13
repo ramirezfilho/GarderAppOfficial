@@ -17,6 +17,7 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" rel="stylesheet">
 
 <!DOCTYPE html>
 <html>
@@ -25,10 +26,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+
+
+
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:import url="cabecalho.jsp" />
-        <jsp:useBean id="dao" class="dao.ContatoDao"/>
+        <c:import url="cabecalho.jsp" />
         <table class="table table-responsive">
             <thead>
                 <tr>
@@ -43,7 +46,7 @@
             </thead>
             <tbody>
                 <!-- percorre contatos montando as linhas da tabela -->
-                <c:forEach var="contato" items="${dao.contatos}">
+                <c:forEach var="contato" items="${contatos}">
                     <tr>
                         <td>${contato.id}</td>
                         <td>${contato.nome}</td>
@@ -57,8 +60,8 @@
                             </c:choose></td>
                         <td>${contato.endereco}</td>
                         <td>${contato.telefone}</td>
-                        <td><span class="glyphicon glyphicon-pencil"></span></td>
-                        <td><span class="glyphicon glyphicon-remove"></span></td>
+                        <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a href="mvc?logica=RemoveContatoLogic&id=${contato.id}" class="btn-exclude" ><span class="glyphicon glyphicon-remove"></span></a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -71,3 +74,4 @@
 
     </body>
 </html>
+

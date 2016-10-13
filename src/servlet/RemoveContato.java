@@ -31,7 +31,7 @@ public class RemoveContato extends HttpServlet {
         PrintWriter out = response.getWriter();
 
           
-        int id = Integer.parseInt((request.getParameter("id")));
+        Long id = Long.parseLong(request.getParameter("id"));
         ContatoDao ops = new ContatoDao();
         ops.remove(id);
         
