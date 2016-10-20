@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Gerenciador de Livros</title>
+    </h:head>
+    <h:body>
+        <h1>Gerenciador de Livros</h1>
+        <h:form>
+            Nome <h:inputText id="1" value="#{contatoController.contato.nome}"/><br/>
+            Email <h:inputText id="2" value="#{contatoController.contato.email}"/><br/>
+            Endereço <h:inputText id="3" value="#{contatoController.contato.endereco}"/><br/>
+            Telefone <h:inputText id="4" value="#{contatoController.contato.telefone}"/><br/>            
+            
+            <h:commandButton action="#{contatoController.adicionarContato}" value="AdicionarContato"/>
+            <h:commandButton action="#{livroController.alterarLivro}" value="Alterar Livro"/>
+            <br/>
+            <h:commandLink action="index" value="Voltar"/>
+        </h:form>
+    </h:body>
+</html>

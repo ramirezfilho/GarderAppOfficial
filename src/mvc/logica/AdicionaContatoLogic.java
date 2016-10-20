@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AdicionaContatoLogic implements Logica {
 
+    public String nome;
+        
+        
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         
         Contato contato = new Contato();
@@ -27,7 +30,7 @@ public class AdicionaContatoLogic implements Logica {
         contato.setTelefone(req.getParameter("telefone"));
 
         ContatoDao dao = new ContatoDao();
-        dao.adiciona(contato);
+        dao.adicionaContato(contato);
 
         return "index.jsp";
 

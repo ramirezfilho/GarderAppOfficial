@@ -42,7 +42,7 @@ public class TestaConexao {
 //		 
 //		 System.out.println("Gravado!");
         ContatoDao dao = new ContatoDao();
-        List<Contato> contatos = dao.getContatos();
+        List<Contato> contatos = dao.listaContatos();
 
         for (Contato contato : contatos) {
             System.out.println("Nome: " + contato.getNome());

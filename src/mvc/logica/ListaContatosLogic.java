@@ -21,7 +21,7 @@ public class ListaContatosLogic implements Logica {
             throws Exception {
 
         // Monta a lista de contatos
-        List<Contato> contatos = new ContatoDao().getContatos();
+        List<Contato> contatos = new ContatoDao().listaContatos();
 
         // Guarda a lista no request
         req.setAttribute("contatos", contatos);

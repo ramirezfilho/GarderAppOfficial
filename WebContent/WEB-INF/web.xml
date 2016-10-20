@@ -10,6 +10,10 @@
             <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
     -->
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
     <servlet>
         <servlet-name>primeiraServlet</servlet-name>
         <servlet-class>servlet.OiMundo</servlet-class>
@@ -30,6 +34,15 @@
     <servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>mvc.servlet.ControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdicionaContatoLogic</servlet-name>
+        <servlet-class>mvc.logica.AdicionaContatoLogic</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>primeiraServlet</servlet-name>
@@ -55,4 +68,16 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/mvc</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdicionaContatoLogic</servlet-name>
+        <url-pattern>/AdicionaContatoLogic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>primefaces.skin</param-name>
+        <param-value>none</param-value>
+    </context-param>
 </web-app>

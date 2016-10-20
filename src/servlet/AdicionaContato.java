@@ -49,7 +49,7 @@ public class AdicionaContato extends HttpServlet {
         contatoAdicionado.setTelefone(telefone);
 
         ContatoDao ops = new ContatoDao();
-        ops.adiciona(contatoAdicionado);
+        ops.adicionaContato(contatoAdicionado);
         RequestDispatcher rd = request
                 .getRequestDispatcher("/contato-adicionado.jsp");
         rd.forward(request, response);

@@ -33,7 +33,7 @@ public class RemoveContato extends HttpServlet {
           
         Long id = Long.parseLong(request.getParameter("id"));
         ContatoDao ops = new ContatoDao();
-        ops.remove(id);
+        ops.removeContato(id);
         
 //        out.println("<html> ");
 //        out.println("<body>");

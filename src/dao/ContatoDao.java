@@ -19,7 +19,7 @@ public class ContatoDao {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public void adiciona(Contato contatoAdicionado) {
+    public void adicionaContato(Contato contatoAdicionado) {
         String sql = "insert into contatos"
                 + "(nome, email, endereco, telefone)" + "values(?,?,?,?)";
 
@@ -44,7 +44,7 @@ public class ContatoDao {
         }
     }
 
-    public List<Contato> getContatos() {
+    public List<Contato> listaContatos() {
         try {
             PreparedStatement stmt = this.connection
                     .prepareStatement("select * from contatos");
@@ -71,7 +71,7 @@ public class ContatoDao {
         }
     }
     
-    public void remove(Long cod) {
+    public void removeContato(Long cod) {
      try {
          PreparedStatement stmt = connection.prepareStatement("delete " +
                  "from contatos where id=?");
