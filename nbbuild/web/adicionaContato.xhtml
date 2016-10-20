@@ -7,17 +7,17 @@
         <title>Gerenciador de Livros</title>
     </h:head>
     <h:body>
+        <h:commandButton actionListener="#{contatoController.prepararAdicionarContato}" value="Prepara"/>
         <h1>Gerenciador de Livros</h1>
-        <h:form>
-            Nome <h:inputText id="1" value="#{contatoController.contato.nome}"/><br/>
-            Email <h:inputText id="2" value="#{contatoController.contato.email}"/><br/>
-            Endereço <h:inputText id="3" value="#{contatoController.contato.endereco}"/><br/>
-            Telefone <h:inputText id="4" value="#{contatoController.contato.telefone}"/><br/>            
+                <h:form>
             
-            <h:commandButton action="#{contatoController.adicionarContato}" value="AdicionarContato"/>
-            <h:commandButton action="#{livroController.alterarLivro}" value="Alterar Livro"/>
+            Nome <h:inputText value="#{contatoController.contato.nome}"/><br/>
+            Email <h:inputText value="#{contatoController.contato.email}"/><br/>
+            Endereço <h:inputText value="#{contatoController.contato.endereco}"/><br/>
+            Telefone <h:inputText value="#{contatoController.contato.telefone}"/><br/>            
+            
+            <h:commandButton actionListener="#{contatoController.adicionarContato}" value="AdicionarContato"/>
             <br/>
-            <h:commandLink action="index" value="Voltar"/>
         </h:form>
     </h:body>
 </html>
