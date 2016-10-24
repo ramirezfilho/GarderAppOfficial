@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <title>Gerencia Contato</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
+
+    </h:head>
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+
+        <h:form id="message">
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="Nome:"/>
+                <p:inputText id="nome" value="#{contatoMB.contato.nome}" size="20"  required="true" requiredMessage="Campo Obrigatório"/>
+                <p:outputLabel value="Endereço:"/>
+                <p:inputText id="end" value="#{contatoMB.contato.endereco}" size="20" required="true" requiredMessage="Campo Obrigatório"/>
+                <p:outputLabel value="Email"/>
+                <p:inputText id="nro" value="#{contatoMB.contato.email}" size="20" />
+                <p:outputLabel value="Telefone:"/>
+                <p:inputMask id="tel" value="#{contatoMB.contato.telefone}" size="20" mask="(99) 99999-9999" />
+                
+                <p:commandButton value="Cancelar" type="reset"/>
+                <p:growl id="message" showDetail="true" />
+                <p:commandButton value="Salvar" actionListener="#{dialogView.mensagemConfirmacao()}" action="#{contatoMB.adicionaContato()}" update="message">
+                    <p:confirm header="Confirmação" message="Tem certeza que deseja salvar o contato?" icon="ui-icon-alert" />
+                </p:commandButton>
+                
+                
+
+
+                
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
+            </h:panelGrid>
+        </h:form>
+    </div>
+    <div class="col-md-4">
+    </div>
+
+</html>
