@@ -40,7 +40,7 @@ public class TarefaDao {
     
     public void adicionaTarefa(Tarefa tarefaAdicionada) {
         String sql = "insert into tarefas"
-                + "(idCliente, unidade, descricao, endentrega, dataentrada, dataprevsaida, datasaida, conclusao)" + 
+                + "(idCliente, tipoUnidade, descricao, endentrega, dataentrada, dataprevsaida, datasaida, conclusao)" + 
                 "values(?,?,?,?,?,?,?,?)";
 
         try {
@@ -55,7 +55,7 @@ public class TarefaDao {
             stmt.setDate(5, tarefaAdicionada.getDataEntrada());
             stmt.setDate(6, tarefaAdicionada.getDataPrevSaida());
             stmt.setDate(7, tarefaAdicionada.getDataSaida());
-            stmt.setBoolean(8, true);
+            stmt.setBoolean(8, false);
             
 //            stmt.setDate(4, new Date(
 //                    contato.getDataNascimento().getTimeInMillis()));
@@ -87,7 +87,7 @@ public class TarefaDao {
                 tarefa.setDataSaida(rs.getDate("dataSaida"));
                 tarefa.setDescricao(rs.getString("descricao"));
                 tarefa.setEnderecoEntrega(rs.getString("enderecoEntrega"));
-                tarefa.setUnidade(rs.getInt("unidade"));
+                tarefa.setUnidade(rs.getInt("tipoUnidade"));
                 tarefa.setConclusao(rs.getBoolean("conclusao"));
                 tarefas.add(tarefa);
             }
@@ -99,11 +99,11 @@ public class TarefaDao {
         }
     }
     
-    public void removeTarefas (Long cod) {
+    public void removeTarefas (Long id) {
      try {
          PreparedStatement stmt = connection.prepareStatement("delete " +
                  "from tarefas where id=?");
-         stmt.setLong(1, cod);
+         stmt.setLong(1, id);
          stmt.execute();
          stmt.close();
      } catch (SQLException e) {

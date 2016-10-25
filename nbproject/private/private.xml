@@ -7,8 +7,10 @@
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/mvc/logica/RemoveContatoLogic.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/adicionaContato.xhtml</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/index.html</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dados/Contato.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dao/ContatoDao.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dados/Tarefa.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/mvc/servlet/ControllerServlet.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dao/TarefaDao.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/interfaces/ContatoMB.java</file>
         </group>

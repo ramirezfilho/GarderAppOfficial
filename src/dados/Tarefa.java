@@ -17,13 +17,14 @@ public class Tarefa {
     
     private Long id;
     private Long idCliente;
-    private int unidade;
+    private boolean conclusao;
+    private int tipoUnidade;
     private String descricao;
     private String enderecoEntrega;
     private Date dataEntrada;
     private Date dataPrevSaida;
     private Date dataSaida;
-    private boolean conclusao;
+    
 
     public Long getId() {
         return id;
@@ -42,11 +43,11 @@ public class Tarefa {
     }
 
     public int getUnidade() {
-        return unidade;
+        return tipoUnidade;
     }
 
     public void setUnidade(int unidade) {
-        this.unidade = unidade;
+        this.tipoUnidade = unidade;
     }
 
     public String getDescricao() {
