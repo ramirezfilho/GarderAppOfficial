@@ -36,7 +36,6 @@ public class ContatoDao {
 //            stmt.setDate(4, new Date(
 //                    contato.getDataNascimento().getTimeInMillis()));
             // executa
-            
             stmt.execute();
             stmt.close();
         } catch (SQLException e) {
@@ -70,18 +69,40 @@ public class ContatoDao {
             throw new RuntimeException(e);
         }
     }
-    
+
     public void removeContato(Long cod) {
-     try {
-         PreparedStatement stmt = connection.prepareStatement("delete " +
-                 "from contatos where id=?");
-         stmt.setLong(1, cod);
-         stmt.execute();
-         stmt.close();
-     } catch (SQLException e) {
-         throw new RuntimeException(e);
-     }
- }
-    
+        try {
+            PreparedStatement stmt = connection.prepareStatement("delete "
+                    + "from contatos where id=?");
+            stmt.setLong(1, cod);
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void alteraContato(Contato contatoEditado) {
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement("update "
+                    + "contatos set nome = ?, email = ?, endereco = ?, telefone= ? where id=?");
+
+            stmt.setString(1, contatoEditado.getNome());
+            stmt.setString(2, contatoEditado.getEmail());
+            stmt.setString(3, contatoEditado.getEndereco());
+            stmt.setString(4, contatoEditado.getTelefone());
+            
+            stmt.setLong(5, contatoEditado.getId());
+            
+            stmt.execute();
+            stmt.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

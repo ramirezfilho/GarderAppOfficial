@@ -3,16 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/lista-contatos-scriplet.jsp</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/WEB-INF/jsp/listacontatos.jsp</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/interfaces/DialogView.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dados/Contato.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/WEB-INF/jboss-web.xml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/gerenciaContato.xhtml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/mvc/servlet/ControllerServlet.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/interfaces/ContatoMB.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/bemvindo.jsp</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/inicio.xhtml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/mostraidade.jsp</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/interfaces/EditView.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/mvc/logica/RemoveContatoLogic.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/adicionaContato.xhtml</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/index.html</file>
-            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dados/Contato.java</file>
-            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dao/ContatoDao.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/gerenciaTarefas.xhtml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/teste/TestaConexao.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/header.xhtml</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dados/Tarefa.java</file>
-            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/mvc/servlet/ControllerServlet.java</file>
             <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dao/TarefaDao.java</file>
-            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/interfaces/ContatoMB.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/mvc/logica/ListaContatosLogic.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/adicionaTarefa.xhtml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/css/style.css</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/src/dao/ContatoDao.java</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/welcomePrimefaces.xhtml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/webapp/dashboard.xhtml</file>
+            <file>file:/C:/Users/goncalvr/Documents/GitHub/GarderAppOfficial/WebContent/META-INF/persistence.xml</file>
         </group>
     </open-files>
 </project-private>

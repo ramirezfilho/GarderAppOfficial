@@ -37,8 +37,13 @@ public class ContatoMB implements Serializable {
         dao.adicionaContato(contato);
     }
     
-    public List listaContatos() {
+    public List getlistaContatos() {
         return contatoList = new ContatoDao().listaContatos();
+    }
+    
+    public void editaContato(Contato contato) {
+        ContatoDao dao = new ContatoDao();
+        dao.alteraContato(contato);
     }
     
     
