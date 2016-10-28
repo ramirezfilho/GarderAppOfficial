@@ -1,7 +1,12 @@
 package dados;
 
 import java.util.Calendar;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 
+
+@ManagedBean(name = "contatoService")
+@ApplicationScoped
 public class Contato {
 
 	  private Long id;
@@ -46,4 +51,8 @@ public class Contato {
 	  public void setTelefone(String telefone) {
 	    this.telefone = telefone;
 	  }
+
+    public void setId(int bunda) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	}

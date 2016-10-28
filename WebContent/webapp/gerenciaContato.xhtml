@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <head>
+    <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -15,7 +15,7 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet"/>
         <link href="../css/style.css" rel="stylesheet"/>
 
-    </head>
+    </h:head>
     <body>
 
         <div class="container-fluid">
@@ -26,60 +26,88 @@
                 <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
                     <a href="adicionaContato.xhtml"> <button class="btn btn-primary">Novo Contato</button></a>
                 </div>
-                
+
             </div>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-1">
                 </div>
-                <div class="col-md-8">
-                    <h:form id="form">
-                        <p:growl id="msgs" showDetail="true"/>
-                        <p:dataTable id="cars1" var="car" value="#{contatoMB.listaContatos}" editable="true" style="margin-bottom:20px">
-                            <f:facet name="header">
-                                
-                            </f:facet>
+                <div class="col-md-10">
 
-                            <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
-                            <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
+                    <!--                    <h:form id="form">
+                                            <p:growl id="msgs" showDetail="true"/>
+                                            <p:dataTable var="contato"  value="#{dtEditView.listaContatos}" 
+                                                         scrollable="true" scrollHeight="500" scrollRows="1000"
+                                                          editable="true" scrollWidth="10px">
+                    
+                                                <p:ajax event="rowSelect" listener="#{contatoMB.onRowSelect}" update=":form:msgs" />
+                                                <p:ajax event="rowUnselect" listener="#{contatoMB.onRowUnselect}" update=":form:msgs" />
+                                                
+                                                <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
+                                                <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
+                    
+                    
+                                                <p:column headerText="Nome"  footerText="Nome" style="width: 150px">
+                                                    <p:cellEditor>
+                                                        <f:facet name="output"><h:outputText value="#{contato.nome}" /></f:facet>
+                                                        <f:facet name="input"><p:inputText id="modelInput" value="#{contato.nome}" style="width:100%" /></f:facet>
+                                                    </p:cellEditor>
+                                                </p:column>
+                    
+                    
+                                                <p:column headerText="Email" footerText="Email" style="width: 300px">
+                                                    <p:cellEditor>
+                                                        <f:facet name="output"><h:outputText value="#{contato.email}" /></f:facet>
+                                                        <f:facet name="input"><p:inputText required="true" id="modelInput2" value="#{contatoMB.newEmail}" style="width:100%"/></f:facet>
+                                                    </p:cellEditor>
+                                                </p:column>
+                                                                            <p:column headerText="Endereco">
+                                                                                <h:outputText value="#{contato.endereco}" />                    
+                                                                            </p:column>
+                    
+                                                <p:column headerText="Telefone" footerText="Telefone" style="width: 150px">
+                                                    <p:cellEditor>
+                                                        <f:facet name="output"><h:outputText value="#{contato.telefone}" /></f:facet>
+                                                        <f:facet name="input"><p:inputText required="true" id="modelInput3" value="#{contatoMB.newTelefone}" style="width:100%"/></f:facet>
+                                                    </p:cellEditor>
+                                                </p:column>
+                    
+                                                <p:column style="width:32px">
+                                                    <p:rowEditor />
+                                                </p:column>
+                                            </p:dataTable>
+                                        </h:form>
+                    
+                    -->
 
-                            <p:column headerText="Id">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
-                                    <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}" style="width:100%"/></f:facet>
-                                </p:cellEditor>
-                            </p:column>
 
-                            <p:column headerText="Nome">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{car.nome}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{car.nome}" style="width:100%"/></f:facet>
-                                </p:cellEditor>
-                            </p:column>
+                    <p:dataTable var="contato" value="#{dtEditView.getlistaContatos}" editable="true">
 
-                            <p:column headerText="Email">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{car.email}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{car.email}" style="width:100%"/>                                  
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
+                        <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
+                        <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
+                        <f:facet name="Header">
+                            In Cell-Editing
+                        </f:facet>
 
-                            <p:column headerText="Endereco">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{car.endereco}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{car.endereco}" style="width:100%"/>                                  
-                                    </f:facet>
-                                </p:cellEditor>
-                            </p:column>
+                        <p:column headerText="Nome">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{contato.nome}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <h:outputText value="#{contato.nome}" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
 
-                            <p:column style="width:32px">
-                                <p:rowEditor id="edit" rendererType="true" />
-                            </p:column>
-                        </p:dataTable>
-                    </h:form>
+                        <p:column>
+                            <p:rowEditor/>
+                        </p:column>
+
+
+                    </p:dataTable>
 
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                 </div>
             </div>
         </div><script src="../js/jquery.min.js"></script>

@@ -42,15 +42,29 @@ public class TestaConexao {
 //		 
 //		 System.out.println("Gravado!");
         ContatoDao dao = new ContatoDao();
-        List<Contato> contatos = dao.listaContatos();
+//        List<Contato> contatos = dao.listaContatos();
+//
+//        for (Contato contato : contatos) {
+//            System.out.println("Nome: " + contato.getNome());
+//            System.out.println("Email: " + contato.getEmail());
+//            System.out.println("Endereço: " + contato.getEndereco());
+//            System.out.println("Data de Nascimento: "
+//                    + contato.getTelefone() + "\n");
+//        }
+        
+        Contato novo =  new Contato();
+        
+        String bunda = "5473";
+        
+        long novos = Long.parseLong(bunda);
+        
+        novo.setEmail("cu");
+        novo.setEndereco("cu");
+        novo.setNome("cu");
+        novo.setTelefone("3333");
+        novo.setId(novos);
 
-        for (Contato contato : contatos) {
-            System.out.println("Nome: " + contato.getNome());
-            System.out.println("Email: " + contato.getEmail());
-            System.out.println("Endereço: " + contato.getEndereco());
-            System.out.println("Data de Nascimento: "
-                    + contato.getTelefone() + "\n");
-        }
+        dao.alteraContato(novo);  
 
     }
 
