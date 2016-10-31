@@ -5,75 +5,41 @@
  */
 package interfaces;
 
-import dados.Contato;
-import dao.ContatoDao;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ViewScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import org.primefaces.application.PrimeResource;
-import org.primefaces.event.CellEditEvent;
-import org.primefaces.event.RowEditEvent;
-import org.primefaces.event.SelectEvent;
-import org.primefaces.event.UnselectEvent;
+import dados.Contato;
+import dao.ContatoDao;
+import javax.faces.event.ActionEvent;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 /**
  *
  * @author GoncalvR
  */
-@ManagedBean(name = "dtEditView")
+@ManagedBean
 @ViewScoped
 public class ContatoMB implements Serializable {
-  
-    private List<Contato> contatoList;
-    private Contato selectedContato;
-    
-    private String newNome;
-    private String newEndereco;
-    private String newEmail;
-    private String newTelefone;
-    
-    @ManagedProperty("#{contatoService}")
+
     private Contato contato;
+    private DataModel contatoList;
+    private List<Contato> filteredContatos;
+    private Contato contatoSelecionado;
 
-    public String getNewNome() {
-        return newNome;
+    public DataModel getContatoList() {
+        List<Contato> lista = new ContatoDao().listaContatos();
+        contatoList = new ListDataModel(lista);
+        return contatoList;
     }
 
-    public void setNewNome(String newNome) {
-        this.newNome = newNome;
+    public void setContatoList(List contatoList) {
+        this.contatoList = (DataModel) contatoList;
     }
 
-    public String getNewEndereco() {
-        return newEndereco;
-    }
-
-    public void setNewEndereco(String newEndereco) {
-        this.newEndereco = newEndereco;
-    }
-
-    public String getNewEmail() {
-        return newEmail;
-    }
-
-    public void setNewEmail(String newEmail) {
-        this.newEmail = newEmail;
-    }
-
-    public String getNewTelefone() {
-        return newTelefone;
-    }
-
-    public void setNewTelefone(String newTelefone) {
-        this.newTelefone = newTelefone;
-    }
-        
     public Contato getContato() {
         return contato;
     }
@@ -81,58 +47,59 @@ public class ContatoMB implements Serializable {
     public void setContato(Contato contato) {
         this.contato = contato;
     }
-    
-    
+
     public void adicionaContato() {
         ContatoDao dao = new ContatoDao();
         dao.adicionaContato(contato);
     }
-    
-    public List getlistaContatos() {
-        return contatoList = new ContatoDao().listaContatos();
-    }
-    
+
     public void editaContato(Contato contato) {
         ContatoDao dao = new ContatoDao();
         dao.alteraContato(contato);
     }
-    
-    public Contato getSelectedContato() {
-        return selectedContato;
-    }
- 
-    public void setSelectedContato(Contato selectedContato) {
-        this.selectedContato = selectedContato;
-    }
-        
-    public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Contato editado", ((Contato) event.getObject()).getNome());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-//        
-//        Long newId = ((Contato) event.getObject()).getId();
-//                
-//        Contato novo = new Contato();
-//               
-//        novo.setNome(newNome);
-//        novo.setEmail(newEmail);
-//        novo.setEndereco(newEndereco);
-//        novo.setTelefone(newTelefone);
-//        novo.setId(newId);
-//        
-//        System.out.println(novo.getId());
-//        System.out.println(novo.getNome());
-//        System.out.println(novo.getEmail());
-//        System.out.println(novo.getEndereco());
-//        System.out.println(novo.getTelefone());
 
-
-//        
-// 
-        
+    public void prepararAlterarContato(ActionEvent actionEvent) {
+        contato = (Contato) (contatoList.getRowData());
     }
-     
-    public void onRowCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edição cancelada", ((Contato) event.getObject()).getNome());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }    
+
+    public String excluirContato(ActionEvent actionEvent) {
+        Contato contatoTemp = (Contato) (contatoList.getRowData());
+        System.out.println(contatoTemp.getNome());
+        ContatoDao dao = new ContatoDao();
+        dao.removeContato(contatoTemp.getId());
+
+        addMessage("Mensagem", "Contato excluído com sucesso!");
+
+        return ("gerenciaContato");
+
+    }
+
+    public void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+
+    public List<Contato> getFilteredContatos() {
+        return filteredContatos;
+    }
+
+    public void setFilteredContatos(List<Contato> filteredContatos) {
+        this.filteredContatos = filteredContatos;
+    }
+
+    public Contato getContatoSelecionado() {
+        return contatoSelecionado;
+    }
+
+    public void setContatoSelecionado(Contato selectedCar) {
+        this.contatoSelecionado = selectedCar;
+    }
+
+    public String getNameLowerCase() {
+        if (contato.getNome() == null) {
+            return null;
+        }
+        return contato.getNome().toLowerCase();
+    }
+
 }

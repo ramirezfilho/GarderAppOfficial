@@ -5,7 +5,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 
-@ManagedBean(name = "contatoService")
+@ManagedBean
 @ApplicationScoped
 public class Contato {
 

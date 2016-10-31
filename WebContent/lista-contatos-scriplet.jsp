@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@page import="dados.Contato"%>
 <%@page import="dao.ContatoDao"%>
-<%@page import="com.sun.tools.ws.wsdl.document.Import"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@page import ="java.util.*"%>
@@ -34,7 +34,7 @@
                             </thead>
                             <%
                                 ContatoDao dao = new ContatoDao();
-                                List<Contato> contatos = dao.getContatos();
+                                List<Contato> contatos = dao.listaContatos();
 
                                 for (Contato contato : contatos) {
                             %>

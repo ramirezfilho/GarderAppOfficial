@@ -16,102 +16,88 @@
         <link href="../css/style.css" rel="stylesheet"/>
 
     </h:head>
-    <body>
+    <h:body>
 
         <div class="container-fluid">
             <ui:insert name="header">
                 <ui:include src="header.xhtml"> </ui:include>
             </ui:insert>
+
             <div class="row">
-                <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
-                    <a href="adicionaContato.xhtml"> <button class="btn btn-primary">Novo Contato</button></a>
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h3>Gerenciamento de contatos</h3>
                 </div>
+                <div class="col-md-1"></div>
 
             </div>
+            
+            <div class="row"/>
             <div class="row">
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
 
-                    <!--                    <h:form id="form">
-                                            <p:growl id="msgs" showDetail="true"/>
-                                            <p:dataTable var="contato"  value="#{dtEditView.listaContatos}" 
-                                                         scrollable="true" scrollHeight="500" scrollRows="1000"
-                                                          editable="true" scrollWidth="10px">
-                    
-                                                <p:ajax event="rowSelect" listener="#{contatoMB.onRowSelect}" update=":form:msgs" />
-                                                <p:ajax event="rowUnselect" listener="#{contatoMB.onRowUnselect}" update=":form:msgs" />
-                                                
-                                                <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
-                                                <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
-                    
-                    
-                                                <p:column headerText="Nome"  footerText="Nome" style="width: 150px">
-                                                    <p:cellEditor>
-                                                        <f:facet name="output"><h:outputText value="#{contato.nome}" /></f:facet>
-                                                        <f:facet name="input"><p:inputText id="modelInput" value="#{contato.nome}" style="width:100%" /></f:facet>
-                                                    </p:cellEditor>
-                                                </p:column>
-                    
-                    
-                                                <p:column headerText="Email" footerText="Email" style="width: 300px">
-                                                    <p:cellEditor>
-                                                        <f:facet name="output"><h:outputText value="#{contato.email}" /></f:facet>
-                                                        <f:facet name="input"><p:inputText required="true" id="modelInput2" value="#{contatoMB.newEmail}" style="width:100%"/></f:facet>
-                                                    </p:cellEditor>
-                                                </p:column>
-                                                                            <p:column headerText="Endereco">
-                                                                                <h:outputText value="#{contato.endereco}" />                    
-                                                                            </p:column>
-                    
-                                                <p:column headerText="Telefone" footerText="Telefone" style="width: 150px">
-                                                    <p:cellEditor>
-                                                        <f:facet name="output"><h:outputText value="#{contato.telefone}" /></f:facet>
-                                                        <f:facet name="input"><p:inputText required="true" id="modelInput3" value="#{contatoMB.newTelefone}" style="width:100%"/></f:facet>
-                                                    </p:cellEditor>
-                                                </p:column>
-                    
-                                                <p:column style="width:32px">
-                                                    <p:rowEditor />
-                                                </p:column>
-                                            </p:dataTable>
-                                        </h:form>
-                    
-                    -->
+
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <p:dataTable id="tabela" value="#{contatoMB.contatoList}" widgetVar="contatoTable" var="contato"
+                                     emptyMessage="Não há contatos para o filtro selecionado." filteredValue="#{contatoMB.filteredContatos}">
+                            <p:column headerText="Nome" filterBy="#{contato.nome}" sortBy="#{contato.nome}" filterMatchMode="contains">
+                                <h:outputText value="#{contato.nome}" />
+                            </p:column>
+                            <p:column headerText="Telefone">
+                                <h:outputText value="#{contato.telefone}"></h:outputText>
+                            </p:column>
+
+                            <p:column width="55">
+                                <p:commandButton actionListener="#{contatoMB.excluirContato}" icon="ui-icon-close"  update="tabela" >
+                                    <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert"  />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="width:55px;text-align: center">
+                                <p:commandButton update=":form:contatoDetail" oncomplete="PF('contatoDialog').show()" icon="ui-icon-search" title="View">
+                                    <f:setPropertyActionListener value="#{contato}" target="#{contatoMB.contatoSelecionado}" />
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
 
 
-                    <p:dataTable var="contato" value="#{dtEditView.getlistaContatos}" editable="true">
+                        <p:confirmDialog global="true">
+                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
 
-                        <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
-                        <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
-                        <f:facet name="Header">
-                            In Cell-Editing
-                        </f:facet>
+                        <p:dialog header="Informações de Contato" widgetVar="contatoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                            <p:outputPanel id="contatoDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty contatoMB.contatoSelecionado}" columnClasses="label,value">
+                                    <h:outputText value="Nome:" />
+                                    <h:outputText value="#{contatoMB.contatoSelecionado.nome}" />
 
-                        <p:column headerText="Nome">
-                            <p:cellEditor>
-                                <f:facet name="output">
-                                    <h:outputText value="#{contato.nome}" />
-                                </f:facet>
-                                <f:facet name="input">
-                                    <h:outputText value="#{contato.nome}" />
-                                </f:facet>
-                            </p:cellEditor>
-                        </p:column>
+                                    <h:outputText value="Telefone:" />
+                                    <h:outputText value="#{contatoMB.contatoSelecionado.telefone}" />
 
-                        <p:column>
-                            <p:rowEditor/>
-                        </p:column>
+                                    <h:outputText value="Email:" />
+                                    <h:outputText value="#{contatoMB.contatoSelecionado.email}"/>
 
-
-                    </p:dataTable>
-
+                                    <h:outputText value="Endereço:" />
+                                    <h:outputText value="$#{contatoMB.contatoSelecionado.endereco}" />
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10" style="padding-top: 10px; padding-bottom: 10px;">
+                    <a href="adicionaContato.xhtml"> <button class="btn btn-primary">Novo Contato</button></a>
                 </div>
+                <div class="col-md-1"></div>
             </div>
         </div><script src="../js/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/scripts.js"></script>
-    </body>
+    </h:body>
 </html>
